@@ -2,11 +2,12 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import SideNav from "../navigation/SideNav";
 import Nav from "../navigation/Nav";
-import DashboardContent from "./DashboardContent";
-import Information from "./Information";
+import DashboardContent from "../../component/dashboard/DashboardContent";
+import Information from "./UserDetails";
 import Users from "./Users";
-import '../../shared/styles/Dashboard.scss';
+import '../../shared/styles/dashboard/Dashboard.scss';
 import { useAuth } from "../../shared/hooks/useAuth"; // Import the useAuth hook
+
 
 const Dashboard: React.FC = () => {
   const { user, isLoading, handleLogout } = useAuth(); // Use the hook

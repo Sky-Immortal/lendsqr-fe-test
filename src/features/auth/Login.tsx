@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../../shared/styles/Login.scss";
-import svgAssets from "../../assets/images/index";
+import "../../shared/styles/auth/Login.scss";
+import svgAssets from "../../shared/constants/imageContent";
 import { loginText } from "../../shared/constants/textContent";
 import { useLoginForm } from "../../shared/hooks/UseLoginHook"; // Import the custom hook
 
@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     setLoginError,
     handleChange,
     validate,
-  } = useLoginForm(); // Use the custom hook
+  } = useLoginForm(); 
 
   /**
    * Handles form submission and authentication

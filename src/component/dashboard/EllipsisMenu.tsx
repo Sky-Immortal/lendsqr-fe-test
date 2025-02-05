@@ -1,5 +1,5 @@
 import React from 'react';
-import { svgAssets } from '../../assets/images/index';
+import { svgAssets } from '../../shared/constants/imageContent';
 
 interface EllipsisMenuProps {
   onClose: () => void;

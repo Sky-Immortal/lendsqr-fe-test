@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import DatePicker from "react-datepicker";
-import '../../shared/styles/Dashboard.scss';
-import svgAssets from "../../assets/images/index";
+import '../../shared/styles/dashboard/Dashboard.scss';
+import svgAssets from "../../shared/constants/imageContent";
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -13,32 +13,7 @@ interface FilterPopupProps {
   onFilter: (filters: any) => void;
   onReset: () => void;
 }
-/**
- * FilterPopup Component
- * 
- * Renders a filter popup form that allows users to filter data based on 
- * several criteria, including organization, username, email, date, phone 
- * number, and status.
- * 
- * Props:
- * - organizations: list of available organizations for filtering
- * - statuses: list of possible statuses for filtering
- * - onFilter: callback function to handle the filtering logic with the 
- *   selected filters
- * - onReset: callback function to reset the filters to their default state
- * 
- * State:
- * - selectedOrganization: the currently selected organization for filtering
- * - username: the username filter input value
- * - email: the email filter input value
- * - date: the selected date filter
- * - phoneNumber: the phone number filter input value
- * - selectedStatus: the currently selected status for filtering
- * 
- * The component includes input fields for each filter criterion and two 
- * buttons to apply the filters or reset them. It leverages Dropdown 
- * components for selection and a DatePicker for date input.
- */
+
 const FilterPopup: React.FC<FilterPopupProps> = ({
   organizations,
   statuses,

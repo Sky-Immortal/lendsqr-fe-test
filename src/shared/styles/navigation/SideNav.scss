@@ -1,8 +1,3 @@
-:root {
-  --gray: #213f7d;
-  --primary: #39cdcc;
-}
-
 .sidenav {
   background-color: white;
   width: fit-content;
@@ -25,22 +20,29 @@
   scrollbar-width: none;
 
   h3 {
-    color: var(--gray);
     text-transform: uppercase;
   }
 
+  .special .nav-item {
+    opacity: 1;
+  }
+
+  .special .dropdown-icon {
+    right: 22%;
+  }
+
   .nav-item {
-    color: var(--gray);
+    color: var(--bg-blue);
     opacity: 0.6;
 
     &:hover,
     &.active {
       background-color: rgba(57, 205, 204, 0.1);
       opacity: 1;
-      border-left: 3px solid var(--primary);
+      border-left: 3px solid var(--bg-green);
 
       svg {
-        color: var(--primary);
+        color: var(--bg-green);
       }
     }
   }
@@ -50,12 +52,16 @@
   }
 
   .version {
-    color: var(--gray);
+    color: var(--bg-blue);
     opacity: 0.6;
   }
 
   &.open {
     transform: translateX(0); // Ensure the sidenav is visible when open
+  }
+
+  .input-group{
+    display: none;
   }
 }
 
@@ -76,9 +82,7 @@
 
 @media (min-width: 1001px) {
   .sidenav {
-    transform: translateX(
-      0
-    );
+    transform: translateX(0);
     width: 280px;
   }
 }
@@ -88,20 +92,14 @@
     display: block; // Show on mobile
   }
 
-  .mobile-search-bar {
-    display: block; // Show the search bar in mobile view
-    padding-top: 50px;
-    padding: 10px;
-    position: relative;
-    background-color: transparent;
-
-    .input-group {
-      max-width: 100%;
-      display: flex; // Ensure the input and button are aligned
-    }
+  .sidenav .input-group {
+    max-width: 90%;
+    display: flex; 
+    margin: auto;
   }
+
   .sidenav {
-    padding-top: 150px;
+    padding-top: 100px;
     transform: translateX(-100%);
 
     &.open {
@@ -125,6 +123,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .sidenav{
+    padding-top: 60px;
+  }
   .menu-icon {
     top: 5px;
     padding: 3px;

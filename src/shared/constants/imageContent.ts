@@ -14,65 +14,67 @@
  * Using explicit imports ensures better tree-shaking and bundle optimization
  */
 // Core assets
-import logo from './svg/Group.svg';
-import loginImage from './svg/pablo-sign-in 1.svg';
-import profile from './png/profile-image.png';
+import logo from '../../assets/images/svg/Group.svg';
+import loginImage from '../../assets/images/svg/pablo-sign-in 1.svg';
+import profile from '../../assets/images/png/profile-image.png';
 
 // Navigation icons
-import switchOrg from './svg/Icons/briefcase.svg';
-import dashboard from './svg/Icons/home.svg';
-import search from './svg/Icons/search.svg';
-import notification from './svg/Icons/notification.svg';
-import dropdown from './svg/Icons/dropdown.svg';
-import dropdownempty from './svg/Icons/dropdown-empty.svg';
-import logout from './svg/Icons/signout.svg';
+import switchOrg from '../../assets/images/svg/Icons/briefcase.svg';
+import dashboard from '../../assets/images/svg/Icons/home.svg';
+import search from '../../assets/images/svg/Icons/search.svg';
+import notification from '../../assets/images/svg/Icons/notification.svg';
+import dropdown from '../../assets/images/svg/Icons/dropdown.svg';
+import dropdownempty from '../../assets/images/svg/Icons/dropdown-empty.svg';
+import logout from '../../assets/images/svg/Icons/signout.svg';
 
 // User management icons
-import users from './svg/Icons/userfriends.svg';
-import guarantors from './svg/Icons/users.svg';
-import whiteList from './svg/Icons/userchecks.svg';
-import karma from './svg/Icons/usertimes.svg';
+import users from '../../assets/images/svg/Icons/userfriends.svg';
+import guarantors from '../../assets/images/svg/Icons/users.svg';
+import whiteList from '../../assets/images/svg/Icons/userchecks.svg';
+import karma from '../../assets/images/svg/Icons/usertimes.svg';
 
 // Financial icons
-import loans from './svg/Icons/sack.svg';
-import decisionModels from './svg/Icons/handshakeregular.svg';
-import savings from './svg/Icons/piggybank.svg';
-import loanRequests from './svg/Icons/Group 104.svg';
-import savingsProduct from './svg/Icons/npbank.svg';
-import fees from './svg/Icons/coins.svg';
-import transactions from './svg/Icons/icon.svg';
+import loans from '../../assets/images/svg/Icons/sack.svg';
+import decisionModels from '../../assets/images/svg/Icons/handshakeregular.svg';
+import savings from '../../assets/images/svg/Icons/piggybank.svg';
+import loanRequests from '../../assets/images/svg/Icons/Group 104.svg';
+import savingsProduct from '../../assets/images/svg/Icons/npbank.svg';
+import fees from '../../assets/images/svg/Icons/coins.svg';
+import transactions from '../../assets/images/svg/Icons/icon.svg';
 
 // Service icons
-import services from './svg/Icons/galaxy.svg';
-import servicesAcct from './svg/Icons/usercog.svg';
-import settlement from './svg/Icons/scroll.svg';
-import reports from './svg/Icons/chartbar.svg';
+import services from '../../assets/images/svg/Icons/galaxy.svg';
+import servicesAcct from '../../assets/images/svg/Icons/usercog.svg';
+import settlement from '../../assets/images/svg/Icons/scroll.svg';
+import reports from '../../assets/images/svg/Icons/chartbar.svg';
 
 // Settings icons
-import preferences from './svg/Icons/sliders.svg';
-import pricing from './svg/Icons/badgepercent.svg';
-import audit from './svg/Icons/clipboard.svg';
-import messages from './svg/Icons/tire.svg';
+import preferences from '../../assets/images/svg/Icons/sliders.svg';
+import pricing from '../../assets/images/svg/Icons/badgepercent.svg';
+import audit from '../../assets/images/svg/Icons/clipboard.svg';
+import messages from '../../assets/images/svg/Icons/tire.svg';
 
 // Statistics Icons 
-import firststat from './svg/Icons/firststat.svg';
-import secondstat from './svg/Icons/secondstat.svg';
-import thirdstat from './svg/Icons/thirdstat.svg';
-import fourthstat from './svg/Icons/fourthstat.svg';
+import firststat from '../../assets/images/svg/Icons/firststat.svg';
+import secondstat from '../../assets/images/svg/Icons/secondstat.svg';
+import thirdstat from '../../assets/images/svg/Icons/thirdstat.svg';
+import fourthstat from '../../assets/images/svg/Icons/fourthstat.svg';
 
 // Users Table Icons
-import filter from './svg/Icons/filter-details.svg';
-import ellipsis from './svg/Icons/ellipsis.svg';
-import backArrow from './svg/Icons/backArrow.svg';
+import filter from '../../assets/images/svg/Icons/filter-details.svg';
+import ellipsis from '../../assets/images/svg/Icons/ellipsis.svg';
+import backArrow from '../../assets/images/svg/Icons/backArrow.svg';
+import next from '../../assets/images/svg/Icons/next.svg';
+import prev from '../../assets/images/svg/Icons/prev.svg';
 
 
 // Ellipsis Icons
-import view from './svg/Icons/view.svg';
-import activateUser from './svg/Icons/activateUser.svg';
-import deleteUser from './svg/Icons/deleteUser.svg';
+import view from '../../assets/images/svg/Icons/view.svg';
+import activateUser from '../../assets/images/svg/Icons/activateUser.svg';
+import deleteUser from '../../assets/images/svg/Icons/deleteUser.svg';
 
 // Filter Icons
-import calender from './svg/Icons/calender.svg';
+import calender from '../../assets/images/svg/Icons/calender.svg';
 
 /**
  * Interface representing the structure of all image assets
@@ -130,6 +132,8 @@ interface ImageAssets {
   readonly filter: string; 
   readonly ellipsis: string; 
   readonly backArrow: string; 
+  readonly next: string; 
+  readonly prev: string; 
 
   //Ellipsis Icons
   readonly view: string; 
@@ -196,6 +200,8 @@ export const svgAssets: Readonly<ImageAssets> = Object.freeze({
   filter,
   ellipsis,
   backArrow,
+  next,
+  prev,
 
   //Ellipsis Icons
   view, 
@@ -263,6 +269,8 @@ export const {
   filter: Filter,
   ellipsis: Ellipsis,
   backArrow: Backarrow,
+  next: Next,
+  prev: Prev,
 
   // Ellipsis
   view: View,

@@ -1,61 +1,14 @@
-/**
- * Nav Component
- * 
- * This component serves as the main navigation bar at the top of the application.
- * Features:
- * - Company logo
- * - Search functionality
- * - Quick links (Docs)
- * - Notifications
- * - User profile with dropdown
- */
-
-import React, { useState, useCallback } from 'react';
-import '../../shared/styles/Nav.scss';
-import svgAssets from '../../assets/images/index';
-import ProfileDropdown from './ProfileDropdown';
-
-// Interface for User data matching ProfileDropdown requirements
-interface User {
-  username: string;
-  organization: string;
-  email: string;
-}
+// src/components/navigation/Nav.tsx
+import React from 'react';
+import '../../shared/styles/navigation/Nav.scss';
+import svgAssets from '../../shared/constants/imageContent';
+import ProfileDropdown from '../../component/navigation/ProfileDropdown';
+import { useNavHooks } from '../../shared/hooks/useNavHooks';
 
 const Nav: React.FC = () => {
-  // State for profile dropdown visibility
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  
-  // Get user data from localStorage with type safety
-  const user: User = React.useMemo(() => {
-    try {
-      const userData = JSON.parse(localStorage.getItem('user') || '{}');
-      // Ensure required fields are present
-      if (!userData.username || !userData.organization || !userData.email) {
-        throw new Error('Invalid user data structure');
-      }
-      return userData;
-    } catch (error) {
-      console.error('Error parsing user data:', error);
-      // Return default user data if parsing fails
-      return {
-        username: 'Guest User',
-        organization: 'Unknown',
-        email: 'guest@example.com'
-      };
-    }
-  }, []);
+  // Use custom hook for state and logic
+  const { showDropdown, user, firstName, handleDropdownToggle } = useNavHooks();
 
-  // Extract first name from username
-  const firstName: string = React.useMemo(() => {
-    return user.username.split(' ')[0];
-  }, [user.username]);
-
-  // Toggle dropdown visibility
-  const handleDropdownToggle = useCallback(() => {
-    setShowDropdown(prev => !prev);
-  }, []);
-  
   return (
     <nav className="top-nav bg-white px-0">
       <div className="top-nav-container d-flex h-100">
@@ -63,7 +16,7 @@ const Nav: React.FC = () => {
         <div className="logo-container" style={{ width: '280px' }}>
           <div className="h-100 d-flex align-items-center justify-content-center">
             <img 
-              src={svgAssets.logo} 
+              src={svgAssets.logo}
               alt="Company Logo" 
               height="30" 
               className="company-logo"
@@ -95,7 +48,7 @@ const Nav: React.FC = () => {
             </div>
 
             {/* Navigation Items */}
-            <div className=" profile-group d-flex align-items-center">
+            <div className="profile-group d-flex align-items-center">
               {/* Documentation Link - Visible on larger screens */}
               <a 
                 href="#users-doc-link" 
@@ -143,5 +96,3 @@ const Nav: React.FC = () => {
 };
 
 export default Nav;
-
-

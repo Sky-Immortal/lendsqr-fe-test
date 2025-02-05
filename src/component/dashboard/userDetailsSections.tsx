@@ -1,18 +1,19 @@
 import React from 'react';
 
-interface SectionProps {
+interface UserDetailsSectionsProps {
   title: string;
   data: { label: string; value: string | number | undefined; isCurrency?: boolean; isDuration?: boolean }[];
+  isLast?: boolean;
 }
 
-const Section: React.FC<SectionProps> = ({ title, data }) => (
+const UserDetailsSections: React.FC<UserDetailsSectionsProps> = ({ title, data, isLast }) => (
   <div className="section">
-    <h2 className='col-blue fw-500 fs-24'>{title}</h2>
-    <div className="row mb-3">
+    <h2 className='col-blue fw-500 fs-16'>{title}</h2>
+    <div className="row">
       {data.map((item, index) => (
         <div className="col-md-3" key={index} style={{ minWidth: '150px' }}>
           <h5 className='fs-12 fw-400 col-gray' style={{ textTransform: 'uppercase' }}>{item.label}:</h5>
-          <p className='fs-16 fw-600 col-gray'>{
+          <p className='fs-16 fw-500 col-gray'>{
             item.isCurrency
               ? `₦${item.value}`
               : item.isDuration
@@ -22,11 +23,12 @@ const Section: React.FC<SectionProps> = ({ title, data }) => (
         </div>
       ))}
     </div>
-    <hr />
+    {!isLast && <hr />}
   </div>
 );
 
-const sections = (user: any) => [
+
+const userDetailsSections = (user: any) => [
   {
     title: "Personal Information",
     data: [
@@ -78,4 +80,4 @@ const sections = (user: any) => [
   },
 ];
 
-export { Section, sections };
+export { UserDetailsSections, userDetailsSections };

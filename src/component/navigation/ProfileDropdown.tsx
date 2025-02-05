@@ -1,12 +1,7 @@
 import React from 'react';
-import '../../shared/styles/Nav.scss';
+import '../../shared/styles/navigation/Nav.scss';
+import { User } from '../../shared/utils/userUtils';  // Adjust the import path
 
-// Interface for User data
-interface User {
-  username: string;
-  organization: string;
-  email: string;
-}
 
 // Props interface for ProfileDropdown
 interface ProfileDropdownProps {

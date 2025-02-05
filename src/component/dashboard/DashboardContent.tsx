@@ -1,31 +1,10 @@
-/**
- * DashboardContent Component
- *
- * This component is responsible for rendering the main content area of the dashboard.
- * It displays:
- * - User welcome message
- * - User's last active status
- * - Organization details
- * - User information
- */
-
 import React from "react";
 import { dashboardText } from "../../shared/constants/textContent";
-
-// Interface for User data structure
-interface User {
-  id: string;
-  username: string;
-  email: string;
-  organization: string;
-  phoneNumber?: string;
-  lastActiveDate?: string;
-  status?: string;
-}
+import { User } from '../../shared/utils/userUtils';
 
 // Props interface for DashboardContent
 interface DashboardContentProps {
-  user: User;
+  user: Pick<User, 'id' | 'username' | 'email' | 'organization' | 'phoneNumber' | 'lastActiveDate' | 'status'>;
 }
 
 const DashboardContent: React.FC<DashboardContentProps> = ({ user }) => {
@@ -62,7 +41,17 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ user }) => {
                     <div className="mb-3">
                       <h5 className="fs-14 fw-600 col-gray">{dashboardText.status}</h5>
                       <p className="fs-16 fw-400" >
-                        <span className="badge bg-success">{user.status}</span>
+                        <span className={`btn-status ${
+                            user.status === "Active"
+                              ? "btn-active"
+                              : user.status === "Inactive"
+                              ? "btn-inactive"
+                              : user.status === "Pending"
+                              ? "btn-pending"
+                              : user.status === "Blacklisted"
+                              ? "btn-blacklisted"
+                              : ""
+                          }`}>{user.status}</span>
                       </p>
                     </div>
                   </div>

@@ -2,7 +2,7 @@
   position: relative;
   top: -5px;
   box-shadow: 0 40px 20px 0 rgba(84, 95, 125, 0.03),
-              0 6px 100px 0 rgba(84, 95, 125, 0.03);
+    0 6px 100px 0 rgba(84, 95, 125, 0.03);
 
   p {
     font-size: 20px;
@@ -37,10 +37,11 @@
 
   .login-form {
     box-shadow: none;
-  }
 
-  .form-control {
-    padding: 12px;
+    .form-control {
+      padding: 12px;
+    }
+    
   }
 
   .password-toggle {

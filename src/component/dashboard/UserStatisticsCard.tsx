@@ -1,5 +1,5 @@
 import React from "react";
-import '../../shared/styles/Dashboard.scss';
+import '../../shared/styles/dashboard/Dashboard.scss';
 
 interface UserStatisticsCardProps {
   title: string;

@@ -33,6 +33,7 @@
   --pending: #e9b200;
 
   // Opacity Variants for Backgrounds
+  --bg-green-darken: #089f9f;
   --bg-gray-opacity: #545f7d30;
   --active-opacity: #39cd6330;
   --inactive-opacity: #545f7d30;
@@ -43,6 +44,7 @@
   --font-size-sm: 12px;
   --font-size-base: 14px;
   --font-size-lg: 16px;
+  --font-size-2lg: 22px;
   --font-size-xl: 24px;
 
   // Font Weights
@@ -131,6 +133,9 @@ code {
 }
 .fs-16 {
   font-size: var(--font-size-lg);
+}
+.fs-22{
+  font-size: var(--font-size-2lg);
 }
 .fs-24 {
   font-size: var(--font-size-xl);
