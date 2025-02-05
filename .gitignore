@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Build directories
+build/
+dist/
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# JSON files (if sensitive data is present)
+*.json
+
+# Additional files to ignore
+fileOrganization.txt
+src/shared/utils/generateData.js

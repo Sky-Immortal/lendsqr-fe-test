@@ -1,0 +1,350 @@
+// ==========================
+// Global Imports
+// ==========================
+
+// Import Google Font: Work Sans
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// Import Bootstrap Framework for base styling and components
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// ==========================
+// CSS Variables (Design Tokens)
+// ==========================
+
+:root {
+  // Primary Colors
+  --bg-green: #39cdcc;
+  --bg-blue: #213f7d;
+  --bg-gray: #545f7d;
+
+  // Additional Colors
+  --pink: #df18ff;
+  --purple: #5718ff;
+  --orange: #f55f44;
+  --red: #ff3366;
+  --white: #fff;
+  --black: #000;
+
+  // Status Colors (for buttons, badges, etc.)
+  --active: #39cd62;
+  --inactive: #545f7d;
+  --blacklisted: #e4033b;
+  --pending: #e9b200;
+
+  // Opacity Variants for Backgrounds
+  --bg-gray-opacity: #545f7d30;
+  --active-opacity: #39cd6330;
+  --inactive-opacity: #545f7d30;
+  --blacklisted-opacity: #e4033b30;
+  --pending-opacity: #e9b20030;
+
+  // Typography Settings
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 24px;
+
+  // Font Weights
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+
+  // Border Radius for different UI elements
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+}
+
+// ==========================
+// Base Styles
+// ==========================
+
+body {
+  margin: 0;
+  font-family: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+// Code Block Styling
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+// ==========================
+// Color Utilities
+// ==========================
+
+// Text Color Utilities
+.col-blue {
+  color: var(--bg-blue);
+}
+.col-green {
+  color: var(--bg-green);
+}
+.col-gray {
+  color: var(--bg-gray);
+}
+
+// Background Color Utilities
+.bg-blue {
+  background-color: var(--bg-blue);
+}
+.bg-green {
+  background-color: var(--bg-green);
+}
+.bg-gray {
+  background-color: var(--bg-gray);
+}
+
+// ==========================
+// Typography Utilities
+// ==========================
+
+// Font Weight Utilities
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+
+// Font Size Utilities
+.fs-12 {
+  font-size: var(--font-size-sm);
+}
+.fs-14 {
+  font-size: var(--font-size-base);
+}
+.fs-16 {
+  font-size: var(--font-size-lg);
+}
+.fs-24 {
+  font-size: var(--font-size-xl);
+}
+
+// Letter Spacing Utilities
+.letter-sm {
+  letter-spacing: 0.1em;
+}
+.letter-md {
+  letter-spacing: 0.15em;
+}
+.letter-lg {
+  letter-spacing: 0.2em;
+}
+
+// ==========================
+// Spacing Utilities
+// ==========================
+
+// Padding Utilities
+// 1rem = 16px
+.padding-60 {
+  padding: 60px;
+}
+
+// Margin Utilities
+.margin-b-40 {
+  margin-bottom: 40px;
+}
+
+// ==========================
+// Text Utilities
+// ==========================
+
+// Truncate Text with Ellipsis
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-break-word {
+  word-wrap: break-word;
+}
+
+
+// ==========================
+// Component Base Styles
+// ==========================
+
+// Button Base Style
+.btn {
+  transition: var(--transition-base);
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Button Variants
+.btn-green {
+  background-color: var(--bg-green);
+  color: white;
+  padding: 12px 0;
+  border-radius: var(--border-radius-md);
+  border: none;
+
+  &:hover {
+    background-color: darken(#39cdcc, 5%);
+  }
+}
+
+.btn-green-outline {
+  background-color: transparent;
+  color: var(--bg-green);
+  border: 1px solid var(--bg-green);
+
+  border-radius: 8px;
+  &:hover {
+    background-color: var(--bg-green);
+    color: white;
+  }
+}
+
+.btn-red-outline {
+  background-color: transparent;
+  color: var(--blacklisted);
+  border: 1px solid var(--blacklisted);
+  padding: 12px 20px;
+  border-radius: 8px;
+  &:hover {
+    background-color: var(--blacklisted);
+    color: white;
+  }
+}
+
+// Status-Based Button Styles
+.btn-inactive {
+  background-color: var(--inactive-opacity);
+  color: var(--inactive);
+}
+.btn-active {
+  background-color: var(--active-opacity);
+  color: var(--active);
+}
+.btn-pending {
+  background-color: var(--pending-opacity);
+  color: var(--pending);
+}
+.btn-blacklisted {
+  background-color: var(--blacklisted-opacity);
+  color: var(--blacklisted);
+}
+
+// Status Badge/Button Style
+.btn-status {
+  border-radius: 20px;
+  padding: 6px 13px;
+}
+
+// ==========================
+// Form Styles
+// ==========================
+
+// Focus State for Form Inputs
+input,
+select,
+textarea {
+  &:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 2px rgba(57, 205, 204, 0.2);
+  }
+}
+
+// ==========================
+// Animation Utilities
+// ==========================
+
+.transition-base {
+  transition: var(--transition-base);
+}
+
+.hover-scale {
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+// ==========================
+// Accessibility Utilities
+// ==========================
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// ==========================
+// Table Styles
+// ==========================
+
+.user-table {
+  caption-side: bottom;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+  vertical-align: top;
+  background-color: white;
+}
+
+.user-table,
+tr {
+  border-spacing: 35px;
+  border-bottom: solid 1px var(--bg-gray-opacity);
+}
+
+.border-none {
+  border: none;
+}
+
+.user-data {
+  color: var(--bg-gray);
+  font-size: var(--font-size-base);
+}
+
+.profile-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--bg-green);
+}
+
+// ==========================
+// Responsive Styles (Media Queries)
+// ==========================
+
+// Medium Screens (Tablets)
+@media screen and (max-width: 1000px) {
+  .padding-60 {
+    padding: 10px;
+  }
+}
+
+// Small Screens (Mobile Devices)
+@media screen and (max-width: 767px) {
+  .btn-status {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+}

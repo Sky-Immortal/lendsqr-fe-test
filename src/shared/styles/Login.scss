@@ -1,0 +1,54 @@
+.login-form {
+  position: relative;
+  top: -5px;
+  box-shadow: 0 40px 20px 0 rgba(84, 95, 125, 0.03),
+              0 6px 100px 0 rgba(84, 95, 125, 0.03);
+
+  p {
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+
+  .form-control {
+    padding: 16px;
+    color: var(--gray);
+    opacity: 0.5;
+    border: 2px solid var(--bg-gray-opacity);
+
+    &:focus {
+      opacity: 1;
+      border: 0;
+    }
+  }
+}
+
+.group-icon {
+  position: absolute;
+  top: 106px;
+  left: 100px;
+  width: 170px;
+  height: auto;
+}
+
+@media (max-width: 767.98px) {
+  .login-image {
+    display: none;
+  }
+
+  .login-form {
+    box-shadow: none;
+  }
+
+  .form-control {
+    padding: 12px;
+  }
+
+  .password-toggle {
+    right: 12px;
+  }
+
+  .group-icon {
+    position: static;
+    margin: 0 auto;
+  }
+}

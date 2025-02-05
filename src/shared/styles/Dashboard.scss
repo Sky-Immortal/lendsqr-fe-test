@@ -1,0 +1,539 @@
+.special-margin-top {
+  margin-top: 80px;
+}
+
+.dashboard {
+  min-height: 100vh;
+  background-color: #fbfbfb;
+  padding-left: 280px; // Match SideNav width
+
+  .dashboard-content {
+    width: 100%;
+
+    .card-body {
+      border-radius: var(--border-radius-md);
+    }
+  }
+}
+
+
+.dashboard-content {
+  .card {
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); // Increased spread
+
+    .card-title {
+      color: #213f7d;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .text-muted {
+      font-size: 0.875rem;
+    }
+
+    .fw-bold {
+      color: #213f7d;
+    }
+  }
+
+  .action-buttons {
+    .btn {
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+
+      &.btn-danger {
+        background-color: #e4033b;
+        border-color: #e4033b;
+
+        &:hover {
+          background-color: darken(#e4033b, 10%);
+        }
+      }
+
+      &.btn-success {
+        background-color: #39cdcc;
+        border-color: #39cdcc;
+
+        &:hover {
+          background-color: darken(#39cdcc, 10%);
+        }
+      }
+    }
+  }
+
+  .badge {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+
+    &.bg-success {
+      background-color: #39cdcc !important;
+    }
+
+    &.bg-danger {
+      background-color: #e4033b !important;
+    }
+  }
+}
+
+.cover {
+  display: flex;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon-class {
+  width: 20px; /* Adjust width as needed */
+  height: 20px; /* Adjust height as needed */
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); // Increased spread
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.user-details-table .card-body {
+  padding: 30px;
+}
+
+.card-body {
+  p {
+    margin-bottom: 0; // Add any additional styles for muted text here
+  }
+}
+
+.user-table {
+  th {
+    padding-bottom: 10px;
+
+    img {
+      margin-left: 5px; // Space between text and icon
+      width: 16px; // Set a fixed width for the icon
+      height: auto; // Maintain aspect ratio
+    }
+  }
+  .ellipsis {
+    float: right; // Right-align the ellipsis
+    cursor: pointer; // Change cursor to pointer for better UX
+  }
+}
+
+// Media query to hide the fifth column at 1350px
+@media (max-width: 1350px) {
+  .user-table {
+    th:nth-child(5),
+    td:nth-child(5) {
+      display: none; // Hide the fifth column
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .user-table {
+    th:nth-child(4),
+    td:nth-child(4) {
+      display: none; // Hide the fifth column
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .user-table {
+    th:nth-child(3),
+    td:nth-child(3) {
+      display: none; // Hide the fifth column
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .card-body {
+    padding: 0; // Remove padding for better responsiveness
+  }
+
+  .dashboard-content .user-details-table {
+    padding: 0 !important;
+    .card-body {
+      padding: 0 !important;
+    }
+  }
+  .user-details-table {
+    .user-table {
+      .user-data {
+        padding: 8px 0 !important;
+      }
+
+      thead {
+        display: none; // Hide table headers for a cleaner mobile view
+      }
+      tbody {
+        display: block;
+
+        tr {
+          display: block;
+          margin-bottom: 10px;
+          background-color: #f9f9f9;
+          border: 1px solid #ddd;
+          padding: 10px;
+          border-radius: 8px;
+
+          td {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border: none;
+            font-size: 12px;
+            border-bottom: 1px solid #eee;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            &::before {
+              content: attr(
+                data-label
+              ); // Use data-label for mobile-friendly titles
+              font-weight: bold;
+              color: #555;
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Adjusting statistics cards
+  .row.mb-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  // Pagination adjustments
+  .pagination {
+    justify-content: center;
+    .page-item {
+      .page-link {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.details-screen .col-md-3 {
+  width: 20% !important;
+  min-width: 100px; // Ensure a minimum width
+  box-sizing: border-box;
+  word-wrap: break-word; // Break long words
+  overflow-wrap: break-word; // Ensure text doesn't overflow
+  padding: 10px; // Add spacing
+}
+.details-screen {
+  padding: 20px;
+
+  .btn {
+    padding: 10px 16px;
+  }  
+
+  .row {
+    display: flex;
+    flex-wrap: wrap; // Allow items to wrap
+    gap: 10px; // Add space between items
+  }
+
+  .details-screen-container {
+    background-color: white;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+    .horizontal-links {
+      padding: 0 20px;
+
+      .text-decoration-none {
+        padding: 0 10px;
+      }
+    }
+
+    .horizontal-links .active {
+      color: var(--bg-green);
+      border-bottom: 2px solid var(--bg-green);
+    }
+  }
+
+  .profile-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 50%;
+  }
+
+  .d-flex {
+    flex-wrap: wrap;
+  }
+
+  .bg-white {
+    padding: 20px;
+  }
+
+  .tier-stars {
+    margin-top: 10px;
+    .stars {
+      font-size: 20px;
+      color: #ffd700;
+    }
+    .star {
+      margin: 0 3px;
+    }
+  }
+}
+
+.vr {
+  display: block;
+  background-color: #ccc;
+  width: 2px;
+  margin: 0 15px;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+// Responsive for tablets (max-width: 1000px)
+@media (max-width: 1000px) {
+
+  .dashboard{
+    padding-left: 0 !important;
+  }
+  .dashboard-content {
+    width: 100% !important;
+  }
+  
+  .details-screen .col-md-3 {
+    width: 25%;
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-circle {
+    margin-bottom: 10px;
+  }
+
+  .vr {
+    display: none;
+  }
+
+  .tier-stars,
+  .text-start {
+    margin-top: 10px;
+  }
+}
+
+// Responsive for mobile (max-width: 767px)
+@media (max-width: 767px) {
+  .details-screen {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .profile-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .tier-stars .stars {
+    font-size: 18px;
+  }
+
+  .text-start p {
+    font-size: 14px;
+  }
+
+  .section {
+    h2 {
+      font-size: 18px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+
+      .col-md-3 {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+// Section styles
+.section {
+  margin-bottom: 20px;
+  background-color: transparent;
+  padding: 20px;
+  h2 {
+    margin-bottom: 30px;
+  }
+}
+
+// Filter popup styles
+.filter-popup {
+  width: 270px;
+  position: absolute;
+  background-color: white;
+  border: 0.5px solid #cccccc7e;
+  border-radius: 4px;
+  padding: 30px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.filter-popup input,
+.filter-popup select,
+.filter-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: var(--bg-gray);
+}
+
+.filter-popup input,
+.filter-popup select {
+  &::placeholder {
+    color: #000;
+    opacity: 0.5;
+  }
+}
+
+.filter-item::after {
+  display: none;
+}
+
+.custom-date-input {
+  position: relative;
+  padding-right: 30px; /* To leave space for the icon */
+  background-image: url("../../assets/images/svg/Icons/calender.svg"); /* Replace with your custom icon */
+  background-repeat: no-repeat;
+  background-position: right 10px center; /* Position the icon on the right side */
+  background-size: 18px 18px; /* Adjust icon size */
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+.custom-date-input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.filter-btn {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.filter-btn button {
+  width: 98px;
+  color: #fff;
+  background-color: var(--bg-green);
+  border-radius: 8px;
+  font-weight: var(--font-weight-600);
+}
+
+.filter-btn button:first-child {
+  background-color: var(--white);
+  color: var(--bg-gray);
+  border: 1px solid var(--bg-gray);
+  margin-right: 14px;
+}
+
+.ellipsis-menu {
+  position: absolute;
+  right: -10px;
+  margin-top: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 150px;
+}
+
+.ellipsis-menu ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin */
+}
+
+.ellipsis-menu li {
+  padding: 10px; /* Padding for menu items */
+  cursor: pointer; /* Pointer cursor on hover */
+  display: flex; /* Flexbox for icon and text */
+  align-items: center; /* Center items vertically */
+}
+
+.ellipsis-menu li:hover {
+  background-color: #f0f0f0; /* Highlight on hover */
+}
+
+.ellipsis-menu img {
+  margin-right: 8px; /* Space between icon and text */
+  width: 16px; /* Set a width for icons */
+  height: 16px; /* Set a height for icons */
+}
+
+@media (max-width: 1000px) {
+  .dashboard-content {
+    .card {
+      padding: 16px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .special-margin-top {
+    margin-top: 40px;
+  }
+
+  .dashboard-content {
+    .margin-b-40 {
+      margin-bottom: 20px;
+    }
+  }
+}

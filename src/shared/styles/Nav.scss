@@ -1,0 +1,133 @@
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  box-shadow: 3px 0px 20px rgba(0, 0, 0, 0.04);
+  z-index: 1000;
+
+  .search-input {
+    border: 1px solid var(--bg-gray-opacity);
+    border-radius: 8px;
+
+    &::placeholder {
+      color: var(--bg-gray);
+    }
+  }
+
+  .main-nav.h-100.d-flex.align-items-center {
+    justify-content: space-between;
+}
+
+  .search-button {
+    border-radius: 0 8px 8px 0;
+  }
+
+  .profile-circle {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+  }
+}
+
+.nav-logo {
+  justify-content: center;
+}
+
+.input-group input::placeholder {
+  opacity: 0.5;
+}
+
+.notification {
+  top: -2px;
+}
+
+@media (max-width: 1000px) {
+  .input-group {
+    display: none; // Hide the search bar on small screens
+  }
+
+  .top-nav-container {
+    justify-content: space-between;
+
+    .main-nav.h-100.d-flex.align-items-center {
+      justify-content: flex-end;
+      padding-right: 40px;
+  }
+  }
+
+  .nav-logo {
+    justify-content: flex-start !important;
+    padding: 20px;
+  }
+}
+
+.d-none {
+  display: none !important; /* Utility class to hide elements */
+}
+
+@media (min-width: 768px) {
+  .d-md-block {
+    display: block !important; /* Show elements on medium and larger screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .top-nav {
+    height: 40px; // Half the height
+
+    .top-nav-container {
+      display: flex;
+      justify-content: space-between; // Split logo and profile content
+      align-items: center;
+
+      .logo-container {
+        width: 140px !important; // Half the width
+        img {
+          height: 15px !important; // Half the height
+        }
+      }
+
+      .main-nav-container {
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+        flex-grow: 1; 
+
+        .main-nav {
+
+          .profile-group {
+            justify-content: flex-end;
+            .main-nav-doc {
+              font-size: 8px !important; // Half the font size
+              margin-right: 2px !important;
+            }
+
+            .main-nav-notification {
+              margin-right: 2px !important;
+              img {
+                height: 10px !important; // Half the height
+              }
+            }
+
+            .main-nav-profile {
+              .profile-circle {
+                width: 24px !important; // Half the width
+                height: 24px !important; // Half the height
+                font-size: 12px !important; // Half the font size
+              }
+
+              span {
+                font-size: 12px !important; // Half the font size
+              }
+
+              img {
+                width: 4px !important; // Half the width
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
