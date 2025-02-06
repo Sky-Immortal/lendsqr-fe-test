@@ -1,14 +1,3 @@
-/**
- * Application Text Content
- * 
- * This file centralizes all text content used across the application.
- * Benefits:
- * - Easy maintenance and updates
- * - Consistent terminology
- * - Support for future internationalization
- * - Single source of truth for text content
- */
-
 // Login page text content
 export const loginText = {
   welcome: "Welcome!",
@@ -84,6 +73,33 @@ export const usersText = {
   fourthColumn: "PHONE NUMBER",
   fifthColumn: "DATE JOINED", // Updated to include Date Joined
   sixthColumn: "STATUS",
+}
+
+// Ellipsis Menu text
+export const ellipsisText = {
+  viewDetails: "View Details",
+  blacklistUser: "Blacklist User",
+  activateUser: "Activate User",
+}
+
+// Filter Menu text
+export const filterText = {
+  organization: "Organization",
+  username: "Username",
+  email: "Email",
+  phoneNumber: "Phone Number",
+  date: "Date",
+  status: "Status",
+  reset: "Reset",
+  filter: "Filter",
+}
+
+// User Details text content
+export const userDetailsText = {
+  userDetails: "User Details",
+  backtousers: "Back to Users",
+  blacklist: "BLACKLIST",
+  activate: "ACTIVATE",
 }
 
 // Error messages

@@ -11,6 +11,7 @@ const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
+  // Check if user is authenticated
   const checkAuth = useCallback(() => {
     const user = localStorage.getItem('user');
     const authFlag = localStorage.getItem('isAuthenticated');
@@ -18,6 +19,7 @@ const App: React.FC = () => {
     setIsLoading(false);
   }, []);
 
+  // Check authentication on component mount
   useEffect(() => {
     checkAuth();
     window.addEventListener('storage', checkAuth);
@@ -27,6 +29,7 @@ const App: React.FC = () => {
     };
   }, [checkAuth]);
 
+  // Render loading indicator
   if (isLoading) {
     return (
       <div 
@@ -39,6 +42,7 @@ const App: React.FC = () => {
     );
   }
 
+  // Render the app
   return (
     <Router>
       <div className="App">

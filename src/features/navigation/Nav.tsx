@@ -49,7 +49,7 @@ const Nav: React.FC = () => {
 
             {/* Navigation Items */}
             <div className="profile-group d-flex align-items-center">
-              {/* Documentation Link - Visible on larger screens */}
+              {/* Documentation Link */}
               <a 
                 href="#users-doc-link" 
                 className="main-nav-doc col-blue fs-16 me-4 d-none d-md-block"
@@ -58,7 +58,7 @@ const Nav: React.FC = () => {
                 Docs
               </a>
 
-              {/* Notifications - Visible on larger screens */}
+              {/* Notifications */}
               <div className="main-nav-notification me-4 position-relative notification d-none d-md-block">
                 <img 
                   src={svgAssets.notification} 

@@ -4,7 +4,7 @@ import DatePicker from "react-datepicker";
 import '../../shared/styles/dashboard/Dashboard.scss';
 import svgAssets from "../../shared/constants/imageContent";
 import "react-datepicker/dist/react-datepicker.css";
-
+import {filterText} from "../../shared/constants/textContent";
 
 interface FilterPopupProps {
   position: { top: number; left: number }; // Add this line
@@ -14,12 +14,15 @@ interface FilterPopupProps {
   onReset: () => void;
 }
 
+// FilterPopup component
 const FilterPopup: React.FC<FilterPopupProps> = ({
   organizations,
   statuses,
   onFilter,
   onReset,
 }) => {
+
+  // State
   const [selectedOrganization, setSelectedOrganization] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -27,6 +30,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
   const [phoneNumber, setPhoneNumber] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
 
+  // Handlers
   const handleFilter = () => {
     const filters = {
       organization: selectedOrganization,
@@ -39,6 +43,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
     onFilter(filters);
   };
 
+  // Reset
   const handleReset = () => {
     setSelectedOrganization("");
     setUsername("");
@@ -52,7 +57,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
   return (
     <div className="filter-popup ">
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Organization</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.organization}</label>
         <Dropdown>
           <Dropdown.Toggle
             variant="outline-secondary"
@@ -74,7 +79,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
         </Dropdown>
       </div>
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Username</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.username}</label>
         <input
           type="text"
           value={username}
@@ -83,7 +88,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
         />
       </div>
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Email</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.email}</label>
         <input
           type="email"
           value={email}
@@ -92,7 +97,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
         />
       </div>
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Date</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.date}</label>
         <DatePicker
           selected={date}
           onChange={(date: Date | null) => setDate(date)} 
@@ -102,7 +107,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
         />
       </div>
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Phone Number</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.phoneNumber}</label>
         <input
           type="number"
           value={phoneNumber}
@@ -111,7 +116,7 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
         />
       </div>
       <div className="form-group">
-        <label className="fw-500 fs-14 col-gray">Status</label>
+        <label className="fw-500 fs-14 col-gray">{filterText.status}</label>
         <Dropdown>
           <Dropdown.Toggle
             variant="outline-secondary"
@@ -134,10 +139,10 @@ const FilterPopup: React.FC<FilterPopupProps> = ({
       </div>
       <div className="filter-btn">
         <button className="btn btn-secondary" onClick={handleReset}>
-          Reset
+          {filterText.reset}
         </button>
         <button className="btn btn-primary" onClick={handleFilter}>
-          Filter
+          {filterText.filter}
         </button>
       </div>
     </div>

@@ -1,3 +1,4 @@
+// SideNav styles
 .sidenav {
   background-color: white;
   width: fit-content;
@@ -65,6 +66,7 @@
   }
 }
 
+// Mobile menu icon
 .menu-icon {
   display: none; // Hide by default
   cursor: pointer;
@@ -81,6 +83,7 @@
 }
 
 @media (min-width: 1001px) {
+  
   .sidenav {
     transform: translateX(0);
     width: 280px;
@@ -88,6 +91,7 @@
 }
 
 @media (max-width: 1000px) {
+
   .menu-icon {
     display: block; // Show on mobile
   }

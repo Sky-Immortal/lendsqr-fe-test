@@ -1,8 +1,7 @@
-import React from 'react';
-import '../../shared/styles/navigation/Nav.scss';
-import { User } from '../../shared/utils/userUtils';  // Adjust the import path
-
-
+import React from "react";
+import "../../shared/styles/navigation/Nav.scss";
+import { User } from "../../shared/utils/userUtils"; // Adjust the import path
+import { navText } from "../../shared/constants/textContent";
 // Props interface for ProfileDropdown
 interface ProfileDropdownProps {
   user: User;
@@ -15,12 +14,12 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ user, isOpen }) => {
 
   return (
     <div className="profile-dropdown">
-      <div className="card border-0 shadow" style={{ minWidth: '250px' }}>
+      <div className="card border-0 shadow" style={{ minWidth: "250px" }}>
         <div className="card-body p-3">
           {/* User's Full Name Section */}
           <div className="mb-3">
             <small className="text-secondary fw-medium d-block mb-1">
-              Full Name
+              {navText.profile.fullName}
             </small>
             <span>{user.username}</span>
           </div>
@@ -28,7 +27,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ user, isOpen }) => {
           {/* Organization Section */}
           <div className="mb-3">
             <small className="text-secondary fw-medium d-block mb-1">
-              Organization
+            {navText.profile.organization}
             </small>
             <span>{user.organization}</span>
           </div>
@@ -36,7 +35,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ user, isOpen }) => {
           {/* Email Section */}
           <div className="mb-3">
             <small className="text-secondary fw-medium d-block mb-1">
-              Email
+            {navText.profile.email}
             </small>
             <span>{user.email}</span>
           </div>
@@ -44,10 +43,22 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ user, isOpen }) => {
           {/* Status Section */}
           <div>
             <small className="text-secondary fw-medium d-block mb-1">
-              Status
+            {navText.profile.status}
             </small>
-            <span className="badge bg-success rounded-pill">
-              Active
+            <span
+              className={`btn-status ${
+                user.status === "Active"
+                  ? "btn-active"
+                  : user.status === "Inactive"
+                  ? "btn-inactive"
+                  : user.status === "Pending"
+                  ? "btn-pending"
+                  : user.status === "Blacklisted"
+                  ? "btn-blacklisted"
+                  : ""
+              }`}
+            >
+              {user.status}
             </span>
           </div>
         </div>

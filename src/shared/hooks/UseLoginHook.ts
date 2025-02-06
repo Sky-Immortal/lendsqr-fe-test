@@ -1,8 +1,11 @@
+// Custom hook for handling login form state and validation
+
 import { useState, useEffect, useCallback } from 'react';
 
 // Types and Interfaces
 type ValidationErrors = Record<'email' | 'password', string>;
 
+// Form state
 interface FormState {
   email: string;
   password: string;
@@ -16,6 +19,7 @@ const PASSWORD_CRITERIA = [
   { test: /[0-9]/, message: "Must contain number" }
 ] as const;
 
+// Custom hook
 export const useLoginForm = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 767.98);
@@ -39,6 +43,7 @@ export const useLoginForm = () => {
           typeof test === 'function' ? !test(value) : !test.test(value)
         );
 
+    // Update errors
     setErrors(prev => ({
       ...prev,
       [name]: isValid ? "" : `Invalid ${name}`
@@ -52,11 +57,13 @@ export const useLoginForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
     setLoginError(""); // Clear login error when user types
 
+    // Validate password
     if (name === 'password') {
       validate(name, value);
     }
   }, [validate]);
 
+  // Return custom hook values
   return {
     showPassword,
     setShowPassword,

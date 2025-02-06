@@ -17,6 +17,7 @@ import {
 
 interface UsersProps {}
 
+// Users component
 const Users: React.FC<UsersProps> = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,10 +27,12 @@ const Users: React.FC<UsersProps> = () => {
   const [isFilterPopupOpen, setIsFilterPopupOpen] = useState(false);
   const usersPerPage = 9;
 
+  // Fetch users on component mount
   useEffect(() => {
     fetchUsers(setUsers);
   }, []);
 
+  // Calculate statistics
   const totalUsers = users.length;
   const activeUsers = users.filter((user) => user.status === "Active").length;
   const usersWithLoans = users.filter((user) => user.loan === "Active").length;
@@ -37,13 +40,21 @@ const Users: React.FC<UsersProps> = () => {
     (user) => user.savings === "Active"
   ).length;
 
+  // Pagination
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
   const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
 
+  // Generate pagination items
   const totalPages = Math.ceil(totalUsers / usersPerPage);
-  const paginationItems = generatePaginationItems(currentPage, totalPages, setCurrentPage, svgAssets);
+  const paginationItems = generatePaginationItems(
+    currentPage,
+    totalPages,
+    setCurrentPage,
+    svgAssets
+  );
 
+  // Handle page change
   const handleViewDetails = (user: User) => {
     navigate(`/dashboard/users/${user.id}`, { state: { user } });
   };
@@ -55,6 +66,7 @@ const Users: React.FC<UsersProps> = () => {
           <h1 className="fs-24 col-blue fw-500">Users</h1>
         </div>
 
+        {/* User Statistics */}
         <div className="row mb-4">
           <UserStatisticsCard
             title={usersText.firstStat}
@@ -82,6 +94,7 @@ const Users: React.FC<UsersProps> = () => {
           />
         </div>
 
+        {/* User Table */}
         <div className="user-details-table card mt-4 mb-4">
           <div className="card-body">
             <div className="table-responsive">
@@ -89,48 +102,85 @@ const Users: React.FC<UsersProps> = () => {
                 <thead>
                   <tr className="border-none fs-12 col-gray">
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.firstColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.secondColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.thirdColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.fourthColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.fifthColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                     <th
-                      onClick={(e) => toggleFilterPopup(e, setPopupPosition, setIsFilterPopupOpen)}
+                      onClick={(e) =>
+                        toggleFilterPopup(
+                          e,
+                          setPopupPosition,
+                          setIsFilterPopupOpen
+                        )
+                      }
                       style={{ cursor: "pointer" }}
                     >
                       {usersText.sixthColumn}{" "}
                       <img src={svgAssets.filter} alt="Filter" />
                     </th>
                   </tr>
+                  {/* Filter Popup */}
                   {isFilterPopupOpen && (
                     <FilterPopup
                       position={popupPosition}
@@ -153,6 +203,7 @@ const Users: React.FC<UsersProps> = () => {
                   )}
                 </thead>
                 <tbody>
+                  {/* Current Users */}
                   {currentUsers.map((user) => (
                     <tr key={user.id}>
                       <td data-label="Organization" className="user-data py-3">
@@ -187,15 +238,21 @@ const Users: React.FC<UsersProps> = () => {
                           {user.status}
                         </span>
                       </td>
+                      {/* Ellipsis Menu */}
                       <td data-label="Actions" className="user-data py-3">
                         <img
                           src={svgAssets.ellipsis}
                           alt="More options"
-                          onClick={() => toggleMenu(user.id, openMenuId, setOpenMenuId)}
+                          onClick={() =>
+                            toggleMenu(user.id, openMenuId, setOpenMenuId)
+                          }
                         />
+                        {/* Ellipsis Menu */}
                         {openMenuId === user.id && (
                           <EllipsisMenu
-                            onClose={() => toggleMenu(user.id, openMenuId, setOpenMenuId)}
+                            onClose={() =>
+                              toggleMenu(user.id, openMenuId, setOpenMenuId)
+                            }
                             onViewDetails={() => handleViewDetails(user)}
                           />
                         )}
@@ -207,26 +264,32 @@ const Users: React.FC<UsersProps> = () => {
             </div>
           </div>
         </div>
-
+        
+        {/* Pagination */}
         <div className="d-flex justify-content-between align-items-center mb-2">
           <span className="col-gray fw-400">
-            Showing <div className="select-container"><select
-              value={currentPage}
-              onChange={(e) => handlePageChange(e, setCurrentPage)}
-              className="select-page-display"
-            >{Array.from({ length: totalPages }, (_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
-                </option>
-              ))}
-            </select><img
-              src={svgAssets.dropdownempty}
-              alt="Dropdown Icon"
-              className="custom-icon"
-            /></div>
-            <span className="total-page-count"> out of {totalPages}</span>                         
+            Showing{" "}
+            <div className="select-container">
+              <select
+                value={currentPage}
+                onChange={(e) => handlePageChange(e, setCurrentPage)}
+                className="select-page-display"
+              >
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <option key={i + 1} value={i + 1}>
+                    {i + 1}
+                  </option>
+                ))}
+              </select>
+              <img
+                src={svgAssets.dropdownempty}
+                alt="Dropdown Icon"
+                className="custom-icon"
+              />
+            </div>
+            <span className="total-page-count"> out of {totalPages}</span>
           </span>
-          
+
           <nav className="pagination-nav">
             <ul className="pagination justify-content-center pagination-container">
               {paginationItems}

@@ -1,3 +1,5 @@
+// Custom hook for handling navigation-related state and functionality
+
 import { useState, useCallback, useMemo } from 'react';
 import { User } from '../utils/userUtils';  // Adjust the import path
 
@@ -13,7 +15,9 @@ export const useNavHooks = () => {
         throw new Error('Invalid user data structure');
       }
       return userData;
-    } catch (error) {
+    } 
+    // Handle parsing errors
+    catch (error) {
       console.error('Error parsing user data:', error);
       return {
         username: 'Guest User',

@@ -8,10 +8,11 @@ import Users from "./Users";
 import '../../shared/styles/dashboard/Dashboard.scss';
 import { useAuth } from "../../shared/hooks/useAuth"; // Import the useAuth hook
 
-
+// Dashboard component
 const Dashboard: React.FC = () => {
   const { user, isLoading, handleLogout } = useAuth(); // Use the hook
 
+  // Render loading indicator
   if (isLoading) {
     return (
       <div className="loading-spinner">
@@ -22,6 +23,7 @@ const Dashboard: React.FC = () => {
     );
   }
 
+  // Render the dashboard
   if (!user) {
     return null;
   }
@@ -32,6 +34,8 @@ const Dashboard: React.FC = () => {
       <div className="special-margin-top">
         <SideNav onLogout={handleLogout} />
         <div className="content-area">
+          
+          {/* Dashboard Content */}
           <Routes>
             <Route path="/" element={<DashboardContent user={user} />} />
             <Route path="users" element={<Users />} />

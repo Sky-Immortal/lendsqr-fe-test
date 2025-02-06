@@ -144,6 +144,8 @@ const Login: React.FC = () => {
                   aria-label="Password"
                   required
                 />
+
+                {/* Password Toggle Button */}
                 <button
                   type="button"
                   className="password-toggle col-green letter-sm fw-semibold border-none bg-transparent position-absolute top-50 end-0 translate-middle-y px-3"
@@ -152,6 +154,7 @@ const Login: React.FC = () => {
                 >
                   {showPassword ? "HIDE" : "SHOW"}
                 </button>
+                {/* Password Error Message */}
                 {errors.password && (
                   <div className="invalid-feedback" role="alert">
                     {errors.password}

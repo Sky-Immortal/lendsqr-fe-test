@@ -6,12 +6,15 @@ interface UserDetailsSectionsProps {
   isLast?: boolean;
 }
 
+// User Details Sections component
 const UserDetailsSections: React.FC<UserDetailsSectionsProps> = ({ title, data, isLast }) => (
   <div className="section">
     <h2 className='col-blue fw-500 fs-16'>{title}</h2>
     <div className="row">
+      {/* Render each item in the data array */}
       {data.map((item, index) => (
         <div className="col-md-3" key={index} style={{ minWidth: '150px' }}>
+          {/* Display the label and value */}
           <h5 className='fs-12 fw-400 col-gray' style={{ textTransform: 'uppercase' }}>{item.label}:</h5>
           <p className='fs-16 fw-500 col-gray'>{
             item.isCurrency
@@ -23,13 +26,16 @@ const UserDetailsSections: React.FC<UserDetailsSectionsProps> = ({ title, data, 
         </div>
       ))}
     </div>
+
+    {/* Add a horizontal line if it's not the last section */}
     {!isLast && <hr />}
   </div>
 );
 
-
+// Function to generate user details sections
 const userDetailsSections = (user: any) => [
   {
+    // Personal Information
     title: "Personal Information",
     data: [
       { label: 'Full Name', value: user.username },
@@ -41,6 +47,7 @@ const userDetailsSections = (user: any) => [
     ],
   },
   {
+    // Education and Employment
     title: "Education and Employment",
     data: [
       { label: 'Level of Education', value: user.educationLevel },
@@ -53,6 +60,7 @@ const userDetailsSections = (user: any) => [
     ],
   },
   {
+    // Socials
     title: "Socials",
     data: [
       { label: 'Twitter', value: user.socialMedia?.twitter },
@@ -61,6 +69,7 @@ const userDetailsSections = (user: any) => [
     ],
   },
   {
+    // Guarantor
     title: "Guarantor",
     data: [
       { label: 'Full Name', value: user.guarantor?.fullName },
@@ -70,6 +79,7 @@ const userDetailsSections = (user: any) => [
     ],
   },
   {
+    // Second Guarantor
     title: "Second Guarantor",
     data: [
       { label: 'Full Name', value: user.secondGuarantor?.fullName },

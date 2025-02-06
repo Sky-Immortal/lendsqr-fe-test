@@ -1,3 +1,13 @@
+/**
+ * Custom React hook for managing user authentication state.
+ * 
+ * Provides functionality for checking user authentication, handling login and logout,
+ * and storing user data in local storage.
+ * 
+ * @returns An object containing the user's authentication state and functions for
+ *          managing that state.
+ */
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -16,21 +26,25 @@ export interface User {
   name: string;
 }
 
+// Custom React hook that manages user authentication state.
 export const useAuth = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Check if user is authenticated
   useEffect(() => {
     const checkAuth = () => {
       const userStr = localStorage.getItem("user");
       const authFlag = localStorage.getItem("isAuthenticated");
 
+      // If user is not authenticated, handle logout
       if (!userStr || !authFlag) {
         handleLogout();
         return;
       }
 
+      // If user is authenticated, parse user data
       try {
         const userData = JSON.parse(userStr);
         const defaultUser = {
@@ -50,14 +64,17 @@ export const useAuth = () => {
       }
     };
 
+    // Check authentication on initial render
     checkAuth();
     window.addEventListener("storage", checkAuth);
 
+    // Clean up event listener
     return () => {
       window.removeEventListener("storage", checkAuth);
     };
   }, [navigate]);
 
+  // Handle user logout
   const handleLogout = () => {
     setIsLoading(false);
     localStorage.removeItem("user");
@@ -66,5 +83,6 @@ export const useAuth = () => {
     navigate("/login", { replace: true });
   };
 
+  // Return user data and loading state
   return { user, isLoading, handleLogout };
 };

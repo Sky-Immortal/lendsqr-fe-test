@@ -12,7 +12,8 @@ dist/
 *.log
 
 # JSON files (if sensitive data is present)
-*.json
+package.JSON
+package-locl.JSON
 
 # Additional files to ignore
 fileOrganization.txt

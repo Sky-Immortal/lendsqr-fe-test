@@ -3,6 +3,7 @@ import "../../shared/styles/navigation/SideNav.scss";
 import svgAssets from "../../shared/constants/imageContent";
 import SideNavLink from "../../component/navigation/SideNavLink";
 import useSideNav from "../../shared/hooks/useSideNavHook";
+import { sideNavText } from "../../shared/constants/textContent";
 
 // Interface for navigation link items
 interface NavLink {
@@ -142,7 +143,7 @@ const SideNav: React.FC<SideNavProps> = ({ onLogout }) => {
         <div className="mb-4 special d-flex align-items-center">
           <SideNavLink
             icon={svgAssets.switchOrg}
-            text="Switch Organization"
+            text={sideNavText.switchOrg}
             alt="Switch Organization"
           />
           <img className="dropdown-icon position-absolute" src={svgAssets.dropdownempty} alt="Dropdown icon" height="8px" />
@@ -152,7 +153,7 @@ const SideNav: React.FC<SideNavProps> = ({ onLogout }) => {
         <div className="mb-4">
           <SideNavLink
             icon={svgAssets.dashboard}
-            text="Dashboard"
+            text={sideNavText.dashboard}
             alt="Dashboard"
             to="/dashboard"
           />
@@ -160,7 +161,7 @@ const SideNav: React.FC<SideNavProps> = ({ onLogout }) => {
 
         {/* Customers Section */}
         <div className="mb-4">
-          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">CUSTOMERS</h3>
+          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">{sideNavText.sections.customers}</h3>
           {customerLinks.map((link, index) => (
             <SideNavLink
               key={`customer-${index}`}
@@ -174,7 +175,7 @@ const SideNav: React.FC<SideNavProps> = ({ onLogout }) => {
 
         {/* Businesses Section */}
         <div className="mb-4">
-          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">BUSINESSES</h3>
+          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">{sideNavText.sections.businesses}</h3>
           {businessLinks.map((link, index) => (
             <SideNavLink
               key={`business-${index}`}
@@ -188,7 +189,7 @@ const SideNav: React.FC<SideNavProps> = ({ onLogout }) => {
 
         {/* Settings Section */}
         <div className="mb-4">
-          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">SETTINGS</h3>
+          <h3 className="fs-12 fw-500 col-gray p-3 mb-2">{sideNavText.sections.settings}</h3>
           {settingsLinks.map((link, index) => (
             <SideNavLink
               key={`settings-${index}`}

@@ -7,6 +7,7 @@ interface DashboardContentProps {
   user: Pick<User, 'id' | 'username' | 'email' | 'organization' | 'phoneNumber' | 'lastActiveDate' | 'status'>;
 }
 
+// DashboardContent component
 const DashboardContent: React.FC<DashboardContentProps> = ({ user }) => {
   return (
     <main className="dashboard-content flex-grow-1">
@@ -41,6 +42,8 @@ const DashboardContent: React.FC<DashboardContentProps> = ({ user }) => {
                     <div className="mb-3">
                       <h5 className="fs-14 fw-600 col-gray">{dashboardText.status}</h5>
                       <p className="fs-16 fw-400" >
+
+                        {/* Status Button */}
                         <span className={`btn-status ${
                             user.status === "Active"
                               ? "btn-active"

@@ -8,6 +8,7 @@ interface UserStatisticsCardProps {
   backgroundColor: string;
 }
 
+// User Statistics Card component
 const UserStatisticsCard: React.FC<UserStatisticsCardProps> = ({
   title,
   value,
@@ -17,6 +18,8 @@ const UserStatisticsCard: React.FC<UserStatisticsCardProps> = ({
   return (
     <div className="col-md-3">
       <div className="card">
+        
+        {/* User Statistics Card Body */}
         <div className="card-body text-left">
           <div className="cover" style={{ backgroundColor }}>
             <img src={icon} alt="Icon" className="icon-class" />

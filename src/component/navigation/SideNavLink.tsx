@@ -10,7 +10,7 @@ interface SideNavLinkProps {
   onClick?: () => void;
 }
 
-
+// Side Navigation component
 const SideNavLink: React.FC<SideNavLinkProps> = ({ 
   icon, 
   text, 
@@ -18,8 +18,10 @@ const SideNavLink: React.FC<SideNavLinkProps> = ({
   to, 
   onClick 
 }) => {
+  // Navigation
   const navigate = useNavigate();
 
+  // Handle click
   const handleClick = useCallback(() => {
     if (onClick) {
       onClick();
@@ -28,7 +30,9 @@ const SideNavLink: React.FC<SideNavLinkProps> = ({
     }
   }, [onClick, to, navigate]);
 
+  // Render
   return (
+    // Side Navigation Item
     <div 
       className="nav-item fs-16 d-flex align-items-center p-3" 
       onClick={handleClick}
@@ -42,6 +46,7 @@ const SideNavLink: React.FC<SideNavLinkProps> = ({
         }
       }}
     >
+      {/* Icon */}
       <img 
         src={icon} 
         alt={alt || text} 

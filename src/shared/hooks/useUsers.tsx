@@ -1,5 +1,15 @@
+/**
+ * useUsers.tsx
+ * 
+ * This file contains a collection of custom hooks and utility functions for managing user data in the application.
+ * It provides functionality for fetching users from the API, generating pagination items, handling page changes, 
+ * toggling menus, and toggling filter popups.
+ * 
+ */
+
 import { User } from "../utils/userUtils";
 
+// Fetch users from the API
 export const fetchUsers = async (setUsers: (users: User[]) => void) => {
   try {
     const response = await fetch("http://localhost:5000/users");
@@ -10,6 +20,7 @@ export const fetchUsers = async (setUsers: (users: User[]) => void) => {
   }
 };
 
+// Generate pagination items
 export const generatePaginationItems = (
   currentPage: number,
   totalPages: number,
@@ -18,6 +29,7 @@ export const generatePaginationItems = (
 ) => {
   const paginationItems = [];
 
+  // Previous button
   paginationItems.push(
     <li className="page-item" key="prev">
       <button
@@ -30,6 +42,7 @@ export const generatePaginationItems = (
     </li>
   );
 
+  // If current page is less than or equal to 3
   if (currentPage <= 3) {
     for (let i = 1; i <= Math.min(3, totalPages); i++) {
       paginationItems.push(
@@ -43,6 +56,8 @@ export const generatePaginationItems = (
         </li>
       );
     }
+
+    // Ellipsis
     if (totalPages > 3) {
       paginationItems.push(
         <li className="page-item disabled" key="ellipsis-end">
@@ -55,7 +70,9 @@ export const generatePaginationItems = (
         </li>
       );
     }
-  } else {
+  } 
+  // If current page is greater than 3
+  else {
     paginationItems.push(
       <li className="page-item" key="first">
         <button onClick={() => setCurrentPage(1)} className="page-link">
@@ -67,6 +84,7 @@ export const generatePaginationItems = (
       </li>
     );
 
+    // Generate pagination items
     for (
       let i = Math.max(1, currentPage - 1);
       i <= Math.min(totalPages, currentPage + 1);
@@ -84,6 +102,7 @@ export const generatePaginationItems = (
       );
     }
 
+    // Ellipsis
     if (currentPage < totalPages - 1) {
       if (currentPage + 1 < totalPages - 1) {
         paginationItems.push(
@@ -92,6 +111,8 @@ export const generatePaginationItems = (
           </li>
         );
       }
+
+      // Last page
       paginationItems.push(
         <li className="page-item" key={totalPages}>
           <button onClick={() => setCurrentPage(totalPages)} className="page-link">
@@ -102,6 +123,7 @@ export const generatePaginationItems = (
     }
   }
 
+  // Next button
   paginationItems.push(
     <li className="page-item" key="next">
       <button
@@ -117,6 +139,7 @@ export const generatePaginationItems = (
   return paginationItems;
 };
 
+// Handle page change
 export const handlePageChange = (
   event: React.ChangeEvent<HTMLSelectElement>,
   setCurrentPage: (page: number) => void
@@ -124,6 +147,7 @@ export const handlePageChange = (
   setCurrentPage(Number(event.target.value));
 };
 
+// Toggle menu
 export const toggleMenu = (
   userId: string,
   openMenuId: string | null,
@@ -132,11 +156,14 @@ export const toggleMenu = (
   setOpenMenuId(openMenuId === userId ? null : userId);
 };
 
+// Toggle filter popup
 export const toggleFilterPopup = (
   event: React.MouseEvent<HTMLTableHeaderCellElement>,
   setPopupPosition: (position: { top: number; left: number }) => void,
   setIsFilterPopupOpen: (isOpen: boolean) => void
 ) => {
+
+  // Calculate popup position
   const rect = event.currentTarget.getBoundingClientRect();
   setPopupPosition({
     top: rect.bottom + window.scrollY,
