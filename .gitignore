@@ -13,7 +13,7 @@ dist/
 
 # JSON files (if sensitive data is present)
 package.JSON
-package-locl.JSON
+package-lock.JSON
 
 # Additional files to ignore
 fileOrganization.txt

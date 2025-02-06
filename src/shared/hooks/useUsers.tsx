@@ -12,7 +12,7 @@ import { User } from "../utils/userUtils";
 // Fetch users from the API
 export const fetchUsers = async (setUsers: (users: User[]) => void) => {
   try {
-    const response = await fetch("http://localhost:5000/users");
+    const response = await fetch("http://localhost:3001/users");
     const data = await response.json();
     setUsers(data);
   } catch (error) {

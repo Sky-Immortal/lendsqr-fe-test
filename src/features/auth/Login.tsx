@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     
     if (validate('email', email) && validate('password', password)) {
       try {
-        const response = await fetch('http://localhost:5000/users');
+        const response = await fetch('http://localhost:3001/users');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

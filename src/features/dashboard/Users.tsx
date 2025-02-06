@@ -4,7 +4,7 @@ import { usersText } from "../../shared/constants/textContent";
 import UserStatisticsCard from "../../component/dashboard/UserStatisticsCard";
 import { svgAssets } from "../../shared/constants/imageContent";
 import EllipsisMenu from "../../component/dashboard/EllipsisMenu";
-import FilterPopup from "./FilterPopUp";
+import FilterPopup from "../../component/dashboard/FilterPopUp";
 import "../../shared/styles/dashboard/Dashboard.scss";
 import { User } from "../../shared/utils/userUtils";
 import {

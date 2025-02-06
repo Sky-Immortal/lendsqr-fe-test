@@ -450,6 +450,7 @@ hr {
 
 .form-group {
   margin-bottom: 20px;
+  width: 100%;
 
   label {
     display: block;
@@ -457,7 +458,7 @@ hr {
   }
 }
 
-.form-group .filter-popup input,
+.form-group input,
 .filter-popup select,
 .filter-item {
   width: 100%;
@@ -467,6 +468,8 @@ hr {
   border-radius: 8px;
   color: var(--bg-gray);
 }
+
+
 
 .filter-popup input,
 .filter-popup select {
@@ -481,12 +484,17 @@ hr {
 }
 
 .custom-date-input {
+  width: 100%;
   position: relative;
-  padding-right: 30px; /* To leave space for the icon */
-  background-image: url("../../../assets/images/svg/Icons/calender.svg"); /* Replace with your custom icon */
+  padding-right: 30px; 
+  background-image: url("../../../assets/images/svg/Icons/calender.svg");
   background-repeat: no-repeat;
-  background-position: right 10px center; /* Position the icon on the right side */
-  background-size: 18px 18px; /* Adjust icon size */
+  background-position: right 10px center; 
+  background-size: 18px 18px; 
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -504,6 +512,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   button {
     width: 98px;
     color: #fff;
+    border: none;
     background-color: var(--bg-green);
     border-radius: 8px;
     font-weight: var(--font-weight-600);
@@ -618,6 +627,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
     .page-item:first-child .page-link {
       color: var(--bg-gray-opacity);
+    }
+
+    .page-item.active .page-link {
+      background-color: var(--bg-green);
+      color: var(--white);
+      border-radius: 4px;
     }
   }
 }
