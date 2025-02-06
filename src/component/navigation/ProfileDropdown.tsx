@@ -1,4 +1,5 @@
 import React from "react";
+import '../../shared/styles/navigation/ProfileDropdown.scss';
 import "../../shared/styles/navigation/Nav.scss";
 import { User } from "../../shared/utils/userUtils"; // Adjust the import path
 import { navText } from "../../shared/constants/textContent";
