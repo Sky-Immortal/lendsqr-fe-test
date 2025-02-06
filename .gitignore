@@ -11,10 +11,6 @@ dist/
 # Log files
 *.log
 
-# JSON files (if sensitive data is present)
-package.JSON
-package-lock.JSON
-
 # Additional files to ignore
 fileOrganization.txt
 src/shared/utils/generateData.js
