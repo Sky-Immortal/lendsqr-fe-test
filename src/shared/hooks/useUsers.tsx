@@ -12,7 +12,7 @@ import { User } from "../utils/userUtils";
 // Fetch users from the API
 export const fetchUsers = async (setUsers: (users: User[]) => void) => {
   try {
-    const response = await fetch("https://database-lumced6mm-sky-immortals-projects.vercel.app/api/db");
+    const response = await fetch("https://db-json-grte.onrender.com/users");
     const data = await response.json();
     setUsers(data);
   } catch (error) {

@@ -30,7 +30,7 @@ const Login: React.FC = () => {
     
     if (validate('email', email) && validate('password', password)) {
       try {
-        const response = await fetch('https://database-lumced6mm-sky-immortals-projects.vercel.app/api/db');
+        const response = await fetch('https://db-json-grte.onrender.com/users');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
