@@ -11,6 +11,11 @@ import { useLocation } from "react-router-dom";
 
 // Interface for User data structure
 export const useInformationHooks = () => {
+
+  interface LocationState {
+    user: any;
+  }
+
   const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>("General Details");
   const [currentUser, setCurrentUser] = useState<any>(location.state?.user || {});
